@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from "../models/article";
 import { ArticleService } from '../article.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-articles',
@@ -9,25 +10,24 @@ import { ArticleService } from '../article.service';
 })
 export class ArticlesComponent implements OnInit {
 
-  public articles: Article[];
+  private _a: Observable<Article[]>;
 
-  constructor(private articleService :ArticleService ) {
+  constructor(private articleService: ArticleService) {
   }
 
-
+  articles(): Observable<Article[]> {
+    return this._a;
+  }
 
   ngOnInit() {
-    this.articleService.get().subscribe((articles: Article[]) => {
-      this.articles = articles;
-    });
+    this._a = this.articleService.get();
   }
 
-  delete({id} : Article){
-    this.articleService.delete(id).subscribe(()=>{
-      this.articleService.get().subscribe(a =>{
-        this.articles = a;
-      });
+  delete({id}: Article){
+    this.articleService.delete(id).subscribe(() => {
+      this._a = this.articleService.get();
     });
   }
 
 }
+

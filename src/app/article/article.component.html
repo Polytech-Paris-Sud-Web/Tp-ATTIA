@@ -1,10 +1,41 @@
 
+<style>
+      button {
+      background-color: #f44336; /* Red */
+      border-radius: 8px;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+    .button:hover{
+          background-color: white;
+          color:#f44336 ;
+    }
 
+    h3{
+      text-align: center;
+    }
+
+    p{
+          text-align: left;
+    }
+
+    blockquote{
+          text-align: center;
+    }
+    div{
+          background-color: #DDDD;
+    }
+
+</style>
 
   <div class="jumbotron">
         <h3> {{this.article.title}} </h3>
         <p class="lead"> {{this.article.content}} </p>
         <blockquote>Written by {{this.article.authors}}</blockquote>
-        <button (click)="delete(article)" class="btn btn">ERASE</button>
+        <button (click)="delete(article)">Supprimer</button>
   </div>
 

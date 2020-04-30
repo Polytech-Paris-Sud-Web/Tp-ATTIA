@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {Article} from '../models/article';
 import { ArticleService } from '../article.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-article',
@@ -12,6 +13,9 @@ export class ArticleComponent implements OnInit {
   @Input()
   article: Article;
 
+  @Output()
+  deletedArticle : EventEmitter<Article>  = new EventEmitter();
+
   constructor(private articleService : ArticleService) {
   
   }
@@ -19,7 +23,9 @@ export class ArticleComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  delete(){
+    this.deletedArticle.emit(this.article);
+  }
 
 
 }

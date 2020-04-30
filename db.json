@@ -1,18 +1,18 @@
 {
     "articles" : [{
       "id": "0",
-      "title": "My First Article",
-      "content": "Hello World",
-      "authors": "Orangefire"
+      "title": "Coronavirus",
+      "content": "Dans un monde ou la vérité et le mensonge s'attaque voici votre défi.\n Comment Allez vous survivre à cette attaque ? \n le coronavirus est dangereux",
+      "authors": "Nanileb"
     }, {
       "id": "1",
-      "title": "Angular component",
-      "content": "Angular component looks awesome!",
-      "authors": "Orangefire"
+      "title": "Tic Toc",
+      "content": "Tu as 8 ans? L'age mental c'est pas ça ? Bah tu vas apprendre à te passer de cette appli. Bonne nuit.",
+      "authors": "LordZoz"
     }, {
       "id": "2",
-      "title": "Angular service",
-      "content": "I read something about angular service, i will try it soon",
-      "authors": "Orangefire"
+      "title": "League of Legend",
+      "content": "Alors pour commencer, tu achètes des botes. Puis good luck Have fun",
+      "authors": "Lankaboy"
     }]
   }
