@@ -13,19 +13,34 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   id: number;
   private sub: any;
+  Article = null;
 
   @Input()
   article: Article;
+
 
   @Output()
   deletedArticle : EventEmitter<Article>  = new EventEmitter();
   newArticle : EventEmitter<Article> = new EventEmitter();
 
-  constructor(private articleService : ArticleService, private route: ActivatedRoute) {}
+  constructor(private articleService : ArticleService, private route: ActivatedRoute) {
+    this.getArticle();
+  }
 
+  getArticle(){
+    this.articleService.read(this.id).subscribe(
+      result=>{
+        this.article =result;
+      },
+      err =>{
+        console.log(err);
+      }
+    )
+  }
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
+      this.getArticle();
    });
 
    
@@ -39,6 +54,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   delete(){
     this.deletedArticle.emit(this.article);
   }
+
 
   
   CreateArticle(){

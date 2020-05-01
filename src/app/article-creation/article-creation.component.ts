@@ -7,7 +7,7 @@ import { identifierModuleUrl } from '@angular/compiler';
 import { ArticleComponent } from '../article/article.component';
 import { Observable } from 'rxjs/Observable';
 
-import { Rowarticle } from '../models/rowarticle';
+
 
 @Component({
   selector: 'app-article-creation',
@@ -36,7 +36,7 @@ export class ArticleCreationComponent implements OnInit {
 
   constructor(private articleService: ArticleService, private fb: FormBuilder) {
     this.articleForm = this.fb.group({
-      id: null,
+      id: Math.random()*(1000000-1)+1,
       title: ['', Validators.required ],
       content : ['', Validators.required ],
       authors : ['', Validators.required ],
@@ -57,12 +57,11 @@ export class ArticleCreationComponent implements OnInit {
  
 
   CreateArticle(creationForm: NgForm) {
-    console.log("iiii");
     if (creationForm.valid) {
       this.newArticle = {
         ...this.articleForm.value
       }
-      this.articleService.post(this.newArticle).subscribe(  res => {
+      this.articleService.post(this.newArticle).subscribe(  res=> {
         this.createdArticle.emit(res);
         this.atcl = this.articleService.get()
         });

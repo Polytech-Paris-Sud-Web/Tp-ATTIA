@@ -13,7 +13,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 })
 export class ArticlesComponent implements OnInit {
 
-  private _a: Observable<Article[]>;
+  private _article: Observable<Article[]>;
 
   newArticle: Article = {
     id: null,
@@ -28,7 +28,7 @@ export class ArticlesComponent implements OnInit {
   }
 
   articles(): Observable<Article[]> {
-    return this._a;
+    return this._article;
   }
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class ArticlesComponent implements OnInit {
   }
 
   getArticle(){
-    this._a = this.articleService.get();
+    this._article = this.articleService.get();
   }
 
   delete({id}: Article){
@@ -47,18 +47,7 @@ export class ArticlesComponent implements OnInit {
 
 
   createdArticle(creationForm: NgForm) {
-    console.log("vvvv");
     this.getArticle()
-    /*if (creationForm.valid) {
-      this.newArticle = {
-        ...this.articleForm.value
-      }
-      this.articleService.post(this.newArticle).subscribe(res => {
-        console.log("xxxx",res);
-        //this._a = this.articleService.get()
-        this.getArticle()
-        });
-    }*/
   }
  
 

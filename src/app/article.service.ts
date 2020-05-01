@@ -20,5 +20,8 @@ export class ArticleService {
   public post(article: Article): Observable<Article> {
     return this.http.post<Article>(`http://localhost:3000/articles`, article);
   }
+  public read(id: number): Observable<Article> {
+    return this.http.get<Article>(`http://localhost:3000/articles/${id}`);
+  }
 }
 
