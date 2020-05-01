@@ -5,7 +5,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Article } from '../models/article';
 import { identifierModuleUrl } from '@angular/compiler';
 import { ArticleComponent } from '../article/article.component';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 
 

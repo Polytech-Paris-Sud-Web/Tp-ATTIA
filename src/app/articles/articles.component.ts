@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from "../models/article";
 import { ArticleService } from '../article.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
