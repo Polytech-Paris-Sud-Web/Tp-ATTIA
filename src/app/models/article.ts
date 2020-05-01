@@ -4,3 +4,4 @@ export type Article = {
   content : string,
   authors : string
 };
+

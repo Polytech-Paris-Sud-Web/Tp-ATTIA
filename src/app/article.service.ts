@@ -17,6 +17,8 @@ export class ArticleService {
   public delete(id:number): Observable<void>{
     return this.http.delete<void>(`http://localhost:3000/articles/${id}`);
   }
-
+  public post(article: Article): Observable<Article> {
+    return this.http.post<Article>(`http://localhost:3000/articles`, article);
+  }
 }
 
