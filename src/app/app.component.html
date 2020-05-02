@@ -1,6 +1,30 @@
+<script>
+  function functionsearch() {
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("Articles");
+      li = ul.getElementsByTagName("a");
+      for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+          } else {
+              li[i].style.display = "none";
+          }
+      }
+  }
+  </script>
+
+
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <style>
+  
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -29,6 +53,31 @@
       background-color: #4CAF50;
       color: white;
     }
+
+    .search-container{
+      background: #ccc;
+    }
+
+    button{
+      float: right;
+      margin-top: 10px;
+      margin-right: 30px;
+      width: 30px;
+      height: 30px;
+      background-color: #eeee;
+    }
+
+    input{
+      margin-top: 10px;
+      float: right;
+    }
+  
+
+    button:hover {
+      background: #dddd;
+    }
+
+
     </style>
     </head>
 <body>
@@ -36,13 +85,14 @@
 <div class="topnav">
     <a routerLink="/create" id="Create" class="active" href="#home">Creer un article</a>
     <a routerLink="/articles" id="Articles" class="button button2" href="#news">Articles</a>
+    <button type="submit" id="sb"><i class="fa fa-search"></i></button>
+    <input type="text" onkeyup="functionsearch()" id="myInput"placeholder="Search...">
   </div>
-
-
 
 <div>
     <router-outlet></router-outlet>
 </div>
 
 </body>
+
 

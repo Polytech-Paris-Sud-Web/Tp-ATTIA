@@ -33,7 +33,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
         this.article =result;
       },
       err =>{
-        console.log(err);
+        //console.log(err);
       }
     )
   }
