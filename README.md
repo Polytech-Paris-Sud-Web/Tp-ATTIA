@@ -3,6 +3,7 @@
 
 
 ## Development server
+Run `npm install`
 
 Run `ng serve` for a dev server.
 
